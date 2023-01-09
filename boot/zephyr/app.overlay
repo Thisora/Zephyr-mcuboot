@@ -1,5 +1,58 @@
+
 / {
-	chosen {
-		zephyr,code-partition = &boot_partition;
-	};
+    chosen {
+        // zephyr,console = &uart0;
+        // zephyr,shell-uart = &uart0;
+        zephyr,flash = &flash0;
+        zephyr,code-partition = &boot_partition;
+    };
+    
+    aliases{
+        mcuboot-led0 = &led0;
+    };
 };
+    
+&flash0{
+    partitions {
+        boot_partition: partition@100 {
+            label = "mcuboot";
+            reg = <0x00000100 0x00010000>;
+            read-only;
+        };
+        slot0_partition: partition@11000 { //Slots has to be align of 0x1000
+            label = "image-0";
+            reg = <0x00011000 0x00016000>;
+        };
+        slot1_partition: partition@27000 {
+            label = "image-1";
+            reg = <0x00027000 0x00016000>;
+        };
+        // scratch_partition: partition@3d000 {
+        //     label = "image-scratch";
+        //     reg = <0x0003d000 0x00002000>;
+        // };
+        // storage_partition: partition@3f000 {
+        //     label = "storage";
+        //     reg = <0x0003f000 0x00002000>;
+        // };
+    };
+};
+
+// &pinctrl {
+// 	uart1_default: uart1_default {
+// 		group1 {
+// 			pinmux = <UART1_TX_P4>;
+// 		};
+// 		group2 {
+// 			pinmux = <UART1_RX_P5>;
+// 			input-enable;
+// 		};
+// 	};
+// };
+
+// &uart1 {
+//     status = "okay";
+//     current-speed = <115200>;
+//     pinctrl-0 = < &uart1_default >;
+//     pinctrl-names = "default";
+// };
