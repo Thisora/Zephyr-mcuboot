@@ -295,7 +295,6 @@
 #elif DT_NODE_HAS_STATUS(DT_ALIAS(watchdog0), okay) /* CONFIG_IWDG_STM32 */
 #include <zephyr/device.h>
 #include <zephyr/drivers/watchdog.h>
-
 #define MCUBOOT_WATCHDOG_FEED()                               \
     do {                                                      \
         const struct device* wdt =                            \

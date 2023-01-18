@@ -27,32 +27,7 @@
             label = "image-1";
             reg = <0x00027000 0x00016000>;
         };
-        // scratch_partition: partition@3d000 {
-        //     label = "image-scratch";
-        //     reg = <0x0003d000 0x00002000>;
-        // };
-        // storage_partition: partition@3f000 {
-        //     label = "storage";
-        //     reg = <0x0003f000 0x00002000>;
-        // };
+
     };
 };
 
-// &pinctrl {
-// 	uart1_default: uart1_default {
-// 		group1 {
-// 			pinmux = <UART1_TX_P4>;
-// 		};
-// 		group2 {
-// 			pinmux = <UART1_RX_P5>;
-// 			input-enable;
-// 		};
-// 	};
-// };
-
-// &uart1 {
-//     status = "okay";
-//     current-speed = <115200>;
-//     pinctrl-0 = < &uart1_default >;
-//     pinctrl-names = "default";
-// };
