@@ -17,15 +17,18 @@
         boot_partition: partition@100 {
             label = "mcuboot";
             reg = <0x00000100 0x00010000>;
-            read-only;
         };
         slot0_partition: partition@11000 { //Slots has to be align of 0x1000
             label = "image-0";
-            reg = <0x00011000 0x00016000>;
+            reg = <0x00011000 0x0000F6000>;
         };
-        slot1_partition: partition@27000 {
+        slot1_partition: partition@107800 {
             label = "image-1";
-            reg = <0x00027000 0x00016000>;
+            reg = <0x00107000 0x0000F6000>;
+        };
+        storage_partition: partition@1fe000 {
+            label = "storage";
+            reg = <0x001FD000 0x00002000>;
         };
 
     };
